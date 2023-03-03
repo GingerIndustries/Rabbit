@@ -9,3 +9,5 @@ bin/
 thonk/
 *.txt
 *.rbt
+
+src/main/antlr/.antlr

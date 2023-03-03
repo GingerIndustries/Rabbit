@@ -47,7 +47,7 @@ assignment
 	;
 
 struct_declaration
-	: ACCESS_MODIFIER? STRUCT identifier COLON INDENT struct_body DEDENT
+	: ACCESS_MODIFIER? STRUCT identifier COLON INDENT struct_body NEWLINE* DEDENT
 	;
 struct_body: struct_item (NEWLINE+ struct_item)*;
 struct_item
@@ -57,12 +57,12 @@ struct_item
 	;
 struct_property: type identifier;
 struct_declaration_trait_implementation
-	: TRAIT full_identifier COLON INDENT trait_implementation_body DEDENT
+	: TRAIT full_identifier COLON INDENT trait_implementation_body NEWLINE* DEDENT
 	;
 
 trait_declaration
 	: ACCESS_MODIFIER? TRAIT identifier (EXTENDS extends_ident=full_identifier) COLON INDENT
-		trait_declaration_body DEDENT
+		trait_declaration_body NEWLINE* DEDENT
 	;
 trait_declaration_body
 	: trait_declaration_item (NEWLINE+ trait_declaration_item)*
@@ -71,7 +71,7 @@ trait_declaration_item: function_declaration;
 
 trait_implementation
 	: TRAIT full_identifier FOR full_identifier COLON INDENT trait_implementation_body
-		DEDENT
+		NEWLINE* DEDENT
 	;
 trait_implementation_body
 	: trait_implementation_item (
