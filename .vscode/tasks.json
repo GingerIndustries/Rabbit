@@ -1,0 +1,56 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "gradle",
+			"id": "/home/ginger/RabbitbuildRabbit",
+			"script": "build",
+			"description": "Assembles and tests this project.",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"dependsOn": "gradle: clean",
+			"project": "Rabbit",
+			"buildFile": "/home/ginger/Rabbit/build.gradle.kts",
+			"rootProject": "Rabbit",
+			"projectFolder": "/home/ginger/Rabbit",
+			"workspaceFolder": "/home/ginger/Rabbit",
+			"args": "",
+			"javaDebug": false,
+			"problemMatcher": [
+				"$gradle"
+			],
+			"label": "gradle: build"
+		},
+		{
+			"type": "gradle",
+			"id": "/home/ginger/RabbitrunRabbit",
+			"script": "run",
+			"description": "Runs this project as a JVM application",
+			"group": "application",
+			"project": "Rabbit",
+			"buildFile": "/home/ginger/Rabbit/build.gradle.kts",
+			"rootProject": "Rabbit",
+			"projectFolder": "/home/ginger/Rabbit",
+			"workspaceFolder": "/home/ginger/Rabbit",
+			"args": "--args='${file}'",
+			"javaDebug": false,
+			"problemMatcher": [
+				"$gradle"
+			],
+			"label": "gradle: run"
+		},
+		{
+			"label": "prepare for debugging",
+			"dependsOn": [
+				"gradle: generateGrammarSource",
+				"gradle: classes"
+			],
+			"dependsOrder": "sequence",
+			"problemMatcher": [
+				"$gradle"
+			]
+		}
+	]
+}
